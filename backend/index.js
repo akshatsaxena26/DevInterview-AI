@@ -15,6 +15,9 @@ app.use(
   }),
 );
 
+app.use(express.urlencoded({ extended: true }));// this 
+app.use(express.json());
+
 app.use("/api/auth", userRoutes); // http://localhost:9001/api/auth/signup
 
 // 3) assign a port number to our server
