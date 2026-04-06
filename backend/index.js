@@ -1,10 +1,20 @@
 //! create an express server and check if it's working
 
 import express from "express";
-import cors from "cors"; // cross origin resource sharing (browser blocks the request which comes from anywhere but localhost:8000)
+import cors from "cors";
+import mongoose from "mongoose"; // cross origin resource sharing (browser blocks the request which comes from anywhere but localhost:8000)
 // 1) we are importing express module which we installed using npm i
 
 import userRoutes from "./routes/auth-route.js";
+
+
+mongoose.connect("mongodb://127.0.0.1:27017/project2")
+.then(() => {
+  console.log("Database connected ✅");
+})
+.catch((err) => {
+  console.log("DB Error ❌", err);
+});
 
 // 2) call/invoke the function
 let app = express(); // object = {listen}
